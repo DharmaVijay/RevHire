@@ -1,0 +1,54 @@
+INFO:user_service:User Created
+ERROR:root:Error in creating new user : no such table: USER
+INFO:main:User Created
+INFO:user_service:User Created
+ERROR:root:Error in creating new user : no such table: USER
+INFO:main:User Created
+INFO:user_service:User Created
+ERROR:root:Error in creating new user : no such table: USER
+INFO:main:User Created
+INFO:user_service:User Created
+INFO:root:User created
+INFO:main:User Created
+ERROR:root:Error in creating new user : no such table: USER
+ERROR:main:failed to create user
+ERROR:root:Error in creating new user : no such table: USER
+ERROR:main:failed to create user
+ERROR:root:Error in creating new user : no such table: USER
+ERROR:main:failed to create user
+ERROR:root:Error in creating new user : no such table: USER
+ERROR:main:failed to create user
+INFO:root:user details name='Dharma' email='krishna@email.com' password='1234' role='Employer'
+ERROR:root:Error in creating new user : no such table: USER
+ERROR:main:failed to create user
+INFO:root:user details name='Dharma' email='krishna@email.com' password='1234' role='Employer'
+INFO:root:User created
+INFO:main:User Created
+ERROR:root:Error in creating new job post : 4 values for 9 columns
+ERROR:main:failed to create job post
+ERROR:root:Error in creating new job post : 4 values for 9 columns
+ERROR:main:failed to create job post
+INFO:jobposts_dao:job post details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+ERROR:root:Error in creating new job post : 4 values for 9 columns
+ERROR:main:failed to create job post
+INFO:main:job details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+INFO:jobposts_dao:job post details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+ERROR:root:Error in creating new job post : 4 values for 9 columns
+ERROR:main:failed to create job post
+INFO:main:job details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+INFO:jobposts_dao:job post details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+ERROR:root:Error in creating new job post : 4 values for 9 columns
+ERROR:main:failed to create job post
+INFO:main:job details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+INFO:jobposts_dao:job post details job_role='software developer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+INFO:root:Job post created
+INFO:main:Job post Created
+ERROR:main:
+ERROR:main:
+INFO:root:user details name='babu' email='babu@email.com' password='123' role='Jobseeker'
+INFO:root:User created
+INFO:main:User Created
+INFO:main:job details job_role='software engineer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+INFO:jobposts_dao:job post details job_role='software engineer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
+INFO:root:Job post created
+INFO:main:Job post Created
