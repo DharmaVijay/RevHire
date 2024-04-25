@@ -12,23 +12,45 @@ user_logger = logging.getLogger(__name__)
 class UserDAO:
     con = sqlite3.connect("revhire.db", check_same_thread=False)
     cursor = con.cursor()
+class UserDAO:
+    con = sqlite3.connect("revhire.db", check_same_thread=False)
+    cursor = con.cursor()
 
-    def create_user(self, user_request:UserRequest):
+    def create_user(self, user_request: UserRequest):
         user_logger.info(f"user details {user_request}")
         try:
+            # Check if the user already exists
             self.cursor.execute(
-                """INSERT INTO USER(name, email, password,role) VALUES(?, ?, ?,?)""",
-                (user_request.name, user_request.email, user_request.password,user_request.role ),
+                """SELECT * FROM USER WHERE email=?""",
+                (user_request.email,)
+            )
+            existing_user = self.cursor.fetchone()
+            if existing_user:
+                user_logger.info("User already exists")
+                raise Exception("User already exists")
+
+            # If the user doesn't exist, insert the new user
+            self.cursor.execute(
+                """INSERT INTO USER(name, email, password, role) VALUES(?, ?, ?, ?)""",
+                (user_request.name, user_request.email, user_request.password, user_request.role),
             )
             self.con.commit()
             user_logger.info("User created")
             return "created"
         except Exception as e:
-            user_logger.error(f"Error in creating new user : {e}")
-            raise Exception("unable to insert user information")
+            user_logger.error(f"Error in creating new user: {e}")
+            raise Exception("Unable to insert user information")
 
     
-    def get_users(self):
+    def get_users(self,user_data:dict):
+        self.cursor.execute(
+                """SELECT * FROM USER WHERE email=?""",
+                (user_data["email"],)
+            )
+        isuser_permission = self.cursor.fetchone()
+        if not isuser_permission:
+            user_logger.info("User doesn't exist")
+            raise Exception("Authentication failed")
         res = self.cursor.execute(
             """SELECT * from USER"""
         )
@@ -63,7 +85,6 @@ class UserDAO:
             )
             self.con.commit()
             user_logger.info("user credentials found in table")
-            print(f"****************** {user}")
             return user.fetchone()
         except Exception as e:
             user_logger.error(f"Error unable to find user : {e}")

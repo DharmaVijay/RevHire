@@ -13,7 +13,6 @@ class JobPostsDAO:
     cursor = con.cursor()
 
     def create_jobpost(self, job_post:JobPosts):
-        print("*********************************88888888888888888",job_post)
         logger_jobpostservice.info(f"job post details {job_post}")
         try:
             self.cursor.execute(
@@ -28,18 +27,24 @@ class JobPostsDAO:
             raise Exception("unable to insert job info")
 
     
-    def fetchall_jobposts(self):
+    def fetchall_jobposts(self,user_info: dict):
+        self.cursor.execute(
+                """SELECT * FROM USER WHERE email=?""",
+                (user_info["email"],)
+            )
+        isuser_permission = self.cursor.fetchone()
+        if not isuser_permission:
+            logger_jobpostservice.info("User doesn't exist")
+            raise Exception("Authentication failed")
         res = self.cursor.execute(
             """SELECT * from JOBPOSTS"""
         )
-        print("result",res)
         self.con.commit()
         return res.fetchall()
     
-    def fetchall_jobposts_employer(self,jobseeker_id):
-        print("u********88888888888888888888",jobseeker_id)
+    def fetchall_jobposts_employer(self,employer_id):
         res = self.cursor.execute(
-            """SELECT * from JOBPOSTS WHERE user_id = ? """,(jobseeker_id,)
+            """SELECT * from JOBPOSTS WHERE user_id = ? """,(employer_id,)
         )
         self.con.commit()
         return res.fetchall()
