@@ -52,3 +52,50 @@ INFO:main:job details job_role='software engineer' company_name='revature' descr
 INFO:jobposts_dao:job post details job_role='software engineer' company_name='revature' description='str' experience=2 posted_on=datetime.date(2021, 3, 25) location='chennai' salary_range='5000000' skills='thon,java' user_id=1
 INFO:root:Job post created
 INFO:main:Job post Created
+INFO:root:Applied for job post
+INFO:main:Applied for job post
+INFO:root:Job Status updated
+INFO:main:Job status updated
+INFO:jobstatus_dao:Job Status updated
+INFO:main:Job status updated
+INFO:jobstatus_dao:Job Status updated
+INFO:main:Job status updated
+INFO:jobstatus_dao:Job Status updated
+INFO:main:Job status updated
+INFO:root:Job Status updated
+INFO:main:Job status updated
+INFO:root:Job Status updated
+INFO:main:Job status updated
+INFO:root:Job Status dao file
+INFO:main:Job status updated
+INFO:main:User data retreived
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+ERROR:main:failed to login
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table
+INFO:user_dao:user credentials found in table

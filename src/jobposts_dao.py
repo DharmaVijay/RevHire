@@ -6,7 +6,7 @@ from dto.create_jobrequest import JobPosts
 import logging
 
 logging.basicConfig(filename="job_posts.log", encoding='utf-8', filemode='a', level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger_jobpostservice = logging.getLogger(__name__)
 
 class JobPostsDAO:
     con = sqlite3.connect("revhire.db", check_same_thread=False)
@@ -14,7 +14,7 @@ class JobPostsDAO:
 
     def create_jobpost(self, job_post:JobPosts):
         print("*********************************88888888888888888",job_post)
-        logger.info(f"job post details {job_post}")
+        logger_jobpostservice.info(f"job post details {job_post}")
         try:
             self.cursor.execute(
                 """INSERT INTO JOBPOSTS(job_role, company_name, description, experience, posted_on, location, salary_range,skills, user_id) VALUES(?, ?, ?,?,?,?,?,?,?)""",

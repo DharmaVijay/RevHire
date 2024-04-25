@@ -3,27 +3,28 @@ import sqlite3
 from model.user import User
 from dto.user_request import UserRequest
 from dto.user_response import UserResponse
+from dto.login_credentials import Login
 import logging
 
 logging.basicConfig(filename="users.log", encoding='utf-8', filemode='a', level=logging.INFO)
-logger = logging.getLogger(__name__)
+user_logger = logging.getLogger(__name__)
 
 class UserDAO:
     con = sqlite3.connect("revhire.db", check_same_thread=False)
     cursor = con.cursor()
 
     def create_user(self, user_request:UserRequest):
-        logging.info(f"user details {user_request}")
+        user_logger.info(f"user details {user_request}")
         try:
             self.cursor.execute(
                 """INSERT INTO USER(name, email, password,role) VALUES(?, ?, ?,?)""",
                 (user_request.name, user_request.email, user_request.password,user_request.role ),
             )
             self.con.commit()
-            logging.info("User created")
+            user_logger.info("User created")
             return "created"
         except Exception as e:
-            logging.error(f"Error in creating new user : {e}")
+            user_logger.error(f"Error in creating new user : {e}")
             raise Exception("unable to insert user information")
 
     
@@ -54,5 +55,18 @@ class UserDAO:
         self.cursor.execute("""DELETE FROM USER WHERE id = ?""", (id))
         self.con.commit()
         return "User deleted"
+    
+    def check_user(self,login: Login):
+        try:
+            user = self.cursor.execute(
+            """SELECT * FROM USER WHERE email=? AND password=?""",(login.email,login.password)
+            )
+            self.con.commit()
+            user_logger.info("user credentials found in table")
+            print(f"****************** {user}")
+            return user.fetchone()
+        except Exception as e:
+            user_logger.error(f"Error unable to find user : {e}")
+            raise Exception("Error User credentials not found")
 
     
